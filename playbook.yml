@@ -2,4 +2,22 @@
 - hosts: all
   sudo: yes
   tasks:
-    - apt: pkg=htop state=present
+  - name: ensure minimum utilities are installed
+    action: apt pkg={{ item }} state=present
+    with_items:
+      - htop
+      - tmux
+      - git
+      - curl
+      - unzip
+      - zip
+      - tree
+      - whois
+      - memstat
+      - s3cmd
+      - python-boto
+      - monit
+      - realpath
+      - apache2-utils
+      - imagemagick
+
